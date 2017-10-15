@@ -13,6 +13,7 @@
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.8.2" level="project" />
     <orderEntry type="library" name="Gradle: org.glassfish.jersey.containers:jersey-container-jetty-http:2.5" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.commons:commons-lang3:3.6" level="project" />
+    <orderEntry type="library" name="Gradle: javax.persistence:javax.persistence-api:2.2" level="project" />
     <orderEntry type="library" name="Gradle: org.glassfish.hk2.external:javax.inject:2.2.0-b21" level="project" />
     <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-server:9.0.6.v20130930" level="project" />
     <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-continuation:9.0.6.v20130930" level="project" />

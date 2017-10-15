@@ -15,4 +15,5 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.2'
     compile group: 'org.glassfish.jersey.containers', name: 'jersey-container-jetty-http', version: '2.5'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.6'
+    compile group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
 }
