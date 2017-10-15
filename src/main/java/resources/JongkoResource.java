@@ -7,16 +7,14 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("/")
+@Path("/login")
 public class JongkoResource {
-    @Path("test")
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String greeting() {
         return "Hello, world! from Pisjongkopet";
     }
 
-    @Path("login")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
