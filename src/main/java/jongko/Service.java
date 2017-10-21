@@ -11,7 +11,7 @@ import java.net.URISyntaxException;
 public class Service {
     public static void main(String[] args) throws Exception {
         try {
-            JettyHttpContainerFactory.createServer(new URI("http://localhost:2000"), new ResourceConfig(Resource.class));
+            JettyHttpContainerFactory.createServer(new URI("http://localhost:2000"), new ResourceConfig(Config.class));
         } catch (URISyntaxException e) {
             e.printStackTrace();
         } catch (Exception e) {

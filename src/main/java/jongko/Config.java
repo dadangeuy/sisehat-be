@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("/login")
-public class Resource {
+public class Config {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String greeting() {
