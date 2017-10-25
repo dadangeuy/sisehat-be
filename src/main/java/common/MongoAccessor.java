@@ -1,11 +1,23 @@
 package common;
 
-import java.util.List;
+import com.google.gson.Gson;
+import com.mongodb.client.MongoCollection;
+import org.bson.Document;
 
-public interface MongoAccessor {
-    void insert(Object doc);
+public class MongoAccessor {
+    MongoCollection collection;
 
-    void insert(List docs);
+    public MongoAccessor(MongoCollection collection) {
+        this.collection = collection;
+    }
 
-    Object get(String id);
+    public void insert(Object doc) {
+        Gson gson = new Gson();
+        String json = gson.toJson(doc);
+        collection.insertOne(Document.parse(json));
+    }
+
+    public Object get(String id) {
+        return null;
+    }
 }

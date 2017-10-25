@@ -1,10 +1,12 @@
 package common;
 
+import com.google.gson.annotations.SerializedName;
+
 import javax.persistence.Id;
 import java.util.Date;
 
 public class User {
-    @Id
+    @SerializedName("_id")
     String email;
     String password;
     String name;

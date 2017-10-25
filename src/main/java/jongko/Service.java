@@ -2,6 +2,7 @@
 
 package jongko;
 
+import com.mongodb.MongoClient;
 import org.glassfish.jersey.jetty.JettyHttpContainerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 
