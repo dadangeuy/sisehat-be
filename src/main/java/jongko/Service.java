@@ -2,7 +2,11 @@
 
 package jongko;
 
+import com.mongodb.DBCollection;
+import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import org.glassfish.jersey.jetty.JettyHttpContainerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 
@@ -18,6 +22,13 @@ public class Service {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        MongoClient mongo = new MongoClient();
+        MongoDatabase db = mongo.getDatabase("sisehat");
+        //DBCollection collection = db.getCollection("user");
+
+        String email = "hallofrieda@gmail.com";
+        String password = "asdfcd";
+
     }
 }
 

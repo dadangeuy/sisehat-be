@@ -4,15 +4,20 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBCursor;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import common.MongoAccessor;
 import common.User;
 
+import javax.swing.text.Document;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
+import java.util.List;
 
 @Path("")
 public class Config {
@@ -44,7 +49,8 @@ public class Config {
             User data = new User();
             data.setEmail(object.get("email").getAsString());
             data.setPassword(object.get("password").getAsString());
-            loginAccessor.insert(data);
+
+            User user = (User)loginAccessor.get(data.getEmail(), User.class);
 
             JsonObject response = new JsonObject();
             response.addProperty("status", "SUCCESS");
