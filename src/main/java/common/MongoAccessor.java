@@ -2,36 +2,34 @@ package common;
 
 import com.google.gson.Gson;
 import com.mongodb.BasicDBObject;
-import com.mongodb.DBObject;
-import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.reflect.Type;
 
-public class MongoAccessor {
-    MongoCollection collection;
+public class MongoAccessor<T> {
+    private MongoCollection collection;
+    private Type type;
 
-    public MongoAccessor(MongoCollection collection) {
+    public MongoAccessor(MongoCollection collection, Type type) {
         this.collection = collection;
+        this.type = type;
     }
 
-    public void insert(Object doc) {
+    public void insert(T item) {
         Gson gson = new Gson();
-        String json = gson.toJson(doc);
+        String json = gson.toJson(item);
         collection.insertOne(Document.parse(json));
     }
 
-    public Object get(String key, Class classname) throws IllegalAccessException, InstantiationException {
+    public T get(String key) throws IllegalAccessException, InstantiationException {
         BasicDBObject query = new BasicDBObject();
         query.put("_id", key);
 
         Object docs = collection.find(query).first();
+        if(docs == null) return null;
         Gson gson = new Gson();
         String json = gson.toJson(docs);
-        Object result = classname.newInstance();
-        result = gson.fromJson(json, classname);
-        return result;
+        return gson.fromJson(json, type);
     }
 }

@@ -1,4 +1,4 @@
-package common;
+package jongko;
 
 import com.google.gson.annotations.SerializedName;
 
