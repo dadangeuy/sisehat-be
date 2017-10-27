@@ -1,13 +1,14 @@
 package jongko;
 
-import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import common.*;
+import common.Database;
+import common.JsonResponse;
+import common.MongoAccessor;
+import common.ResponseMessage;
 
 public class JongkoService {
     private final MongoDatabase db = Database.jongko;
-    private final MongoCollection userCollection = db.getCollection("user");
-    private final MongoAccessor<User> userAccessor = new MongoAccessor<>(userCollection, User.class);
+    private final MongoAccessor<User> userAccessor = new MongoAccessor<>(db.getCollection("user-data"), User.class);
 
     public String login(User data) throws InstantiationException, IllegalAccessException {
         User dbData = userAccessor.get(data.getEmail());
