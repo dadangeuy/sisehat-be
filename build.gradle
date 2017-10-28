@@ -16,5 +16,4 @@ dependencies {
     compile group: 'org.glassfish.jersey.containers', name: 'jersey-container-jetty-http', version: '2.5'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.6'
     compile group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
-    compile group: 'org.springframework', name: 'spring-core', version: '5.0.1.RELEASE'
 }

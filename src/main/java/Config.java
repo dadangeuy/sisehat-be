@@ -1,5 +1,3 @@
-package common;
-
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import jongko.JongkoService;
@@ -33,7 +31,10 @@ public class Config {
             data.setEmail(object.get("email").getAsString());
             data.setPassword(object.get("password").getAsString());
 
-            return Response.ok(jongkoService.login(data)).build();
+            return Response
+                    .ok(jongkoService.login(data))
+                    .header("Access-Control-Allow-Origin", "*")
+                    .build();
         } catch (Exception e) {
             return Response.serverError().build();
         }

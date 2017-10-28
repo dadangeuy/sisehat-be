@@ -1,7 +1,5 @@
 // Login & Signup Services
 
-package common;
-
 import org.glassfish.jersey.jetty.JettyHttpContainerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 
