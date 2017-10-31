@@ -11,7 +11,6 @@ import javax.ws.rs.core.Response;
 public class Config {
     private final JongkoService jongkoService = new JongkoService();
 
-    @Path("test")
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String greeting() {
