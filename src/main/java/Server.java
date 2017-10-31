@@ -14,7 +14,7 @@ public class Server {
             Options options = new Options();
             options.addOption("PORT", true, "Specify Used Port");
 
-            CommandLineParser parser = new PosixParser();
+            CommandLineParser parser = new DefaultParser();
             CommandLine cmd = parser.parse(options, args);
 
             int port = Integer.valueOf(cmd.getOptionValue("PORT"));

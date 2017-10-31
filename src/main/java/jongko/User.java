@@ -12,7 +12,7 @@ public class User {
     String name;
     String phone;
     String gender;
-    Date birthdate;
+    long birthdate;
 
     public String getEmail() {
         return email;
@@ -54,11 +54,11 @@ public class User {
         this.gender = gender;
     }
 
-    public Date getBirthdate() {
+    public long getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(Date birthdate) {
+    public void setBirthdate(long birthdate) {
         this.birthdate = birthdate;
     }
 }
