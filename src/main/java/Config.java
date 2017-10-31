@@ -1,3 +1,4 @@
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import jongko.JongkoService;
@@ -27,15 +28,10 @@ public class Config {
     @Produces(MediaType.APPLICATION_JSON)
     public Response login(String request) {
         try {
-            JsonParser parser = new JsonParser();
-            JsonObject object = parser.parse(request).getAsJsonObject();
-
-            User data = new User();
-            data.setEmail(object.get("email").getAsString());
-            data.setPassword(object.get("password").getAsString());
-
+            Gson gson = new Gson();
+            User user = gson.fromJson(request, User.class);
             return Response
-                    .ok(jongkoService.login(data).build())
+                    .ok(jongkoService.login(user).build())
                     .header("Access-Control-Allow-Origin", "*")
                     .build();
         } catch (Exception e) {
@@ -48,19 +44,10 @@ public class Config {
     @Produces(MediaType.APPLICATION_JSON)
     public Response signup(String request) {
         try {
-            JsonParser parser = new JsonParser();
-            JsonObject object = parser.parse(request).getAsJsonObject();
-
-            User data = new User();
-            data.setEmail(object.get("email").getAsString());
-            data.setPassword(object.get("password").getAsString());
-            data.setName(object.get("name").getAsString());
-            data.setPhone(object.get("phone").getAsString());
-            data.setGender(object.get("gender").getAsString());
-            data.setBirthdate(object.get("birthdate").getAsLong());
-
+            Gson gson = new Gson();
+            User user = gson.fromJson(request, User.class);
             return Response
-                    .ok(jongkoService.signup(data).build())
+                    .ok(jongkoService.signup(user).build())
                     .header("Access-Control-Allow-Origin", "*")
                     .build();
         } catch (Exception e) {
@@ -73,14 +60,10 @@ public class Config {
     @Produces(MediaType.APPLICATION_JSON)
     public Response profile(String request) {
         try {
-            JsonParser parser = new JsonParser();
-            JsonObject object = parser.parse(request).getAsJsonObject();
-
-            User data = new User();
-            data.setEmail(object.get("email").getAsString());
-
+            Gson gson = new Gson();
+            User user = gson.fromJson(request, User.class);
             return Response
-                    .ok(jongkoService.get(data).build())
+                    .ok(jongkoService.get(user).build())
                     .header("Access-Control-Allow-Origin", "*")
                     .build();
         } catch (Exception e) {

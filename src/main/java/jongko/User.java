@@ -6,7 +6,6 @@ import javax.persistence.Id;
 import java.util.Date;
 
 public class User {
-    @SerializedName("_id")
     String email;
     String password;
     String name;
