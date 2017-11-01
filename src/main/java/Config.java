@@ -1,5 +1,4 @@
 import bobo.BoboService;
-import bobo.BoboServiceImpl;
 import bobo.BoboServiceMock;
 import bobo.RequestDoctor;
 import com.google.gson.Gson;
@@ -13,7 +12,7 @@ import javax.ws.rs.core.Response;
 
 @Path("")
 public class Config {
-    private final BoboService boboServiceMock = new BoboServiceMock();
+    private final BoboService boboService = new BoboServiceMock();
     private final JongkoService jongkoService = new JongkoServiceMock();
 
     // for testing
@@ -74,7 +73,7 @@ public class Config {
     }
 
     // bobo routing
-    @Path("request")
+    @Path("find-doctor")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -85,7 +84,7 @@ public class Config {
             requestDoctor.setStatus(0);
 
             return Response
-                    .ok(boboServiceMock.request(requestDoctor).build())
+                    .ok(boboService.request(requestDoctor).build())
                     .header("Access-Control-Allow-Origin", "*")
                     .build();
         } catch (Exception e){
