@@ -13,4 +13,5 @@ public class ResponseMessage {
     public static String LOGIN_SUCCESS = "login success, user may login now.";
     public static String SIGNUP_SUCCESS = "signup success, user can login now.";
     public static String UNDER_DEVELOPMENT = "feature still under development.";
+    public static String REQUEST_ACCEPTED = "your request has been accepted.";
 }

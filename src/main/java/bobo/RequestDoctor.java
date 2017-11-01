@@ -5,8 +5,8 @@ public class RequestDoctor {
     String email;
     String address;
     String note;
-    float latitude;
-    float longitude;
+    double latitude;
+    double longitude;
     int status;
     String category;
     String complaint;
@@ -39,19 +39,19 @@ public class RequestDoctor {
         this.note = note;
     }
 
-    public float getLatitude() {
-        return latitude;
+    public double getLatitude() {
+        return (double) latitude;
     }
 
-    public void setLatitude(float latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public float getLongitude() {
-        return longitude;
+    public double getLongitude() {
+        return (double) longitude;
     }
 
-    public void setLongitude(float longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 

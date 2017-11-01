@@ -1,4 +1,6 @@
 import bobo.BoboService;
+import bobo.BoboServiceImpl;
+import bobo.BoboServiceMock;
 import bobo.RequestDoctor;
 import com.google.gson.Gson;
 import jongko.JongkoService;
@@ -11,7 +13,7 @@ import javax.ws.rs.core.Response;
 
 @Path("")
 public class Config {
-    private final BoboService boboService = new BoboService();
+    private final BoboService boboServiceMock = new BoboServiceMock();
     private final JongkoService jongkoService = new JongkoServiceMock();
 
     // for testing
@@ -83,7 +85,7 @@ public class Config {
             requestDoctor.setStatus(0);
 
             return Response
-                    .ok(boboService.request(requestDoctor).build())
+                    .ok(boboServiceMock.request(requestDoctor).build())
                     .build();
         } catch (Exception e){
             return Response.serverError().build();
