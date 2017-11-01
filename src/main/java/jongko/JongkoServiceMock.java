@@ -10,21 +10,19 @@ public class JongkoServiceMock implements JongkoService {
     @Override
     public JsonResponse login(User user) {
         JsonResponse response = new JsonResponse();
-        response.setStatus(ResponseMessage.SUCCESS);
-        response.setMessage(ResponseMessage.LOGIN_SUCCESS);
-        return response;
+        return response.success(ResponseMessage.LOGIN_SUCCESS);
     }
 
     @Override
     public JsonResponse signup(User user) {
         JsonResponse response = new JsonResponse();
-        response.setStatus(ResponseMessage.SUCCESS);
-        response.setMessage(ResponseMessage.SIGNUP_SUCCESS);
-        return response;
+        return response.success(ResponseMessage.SIGNUP_SUCCESS);
     }
 
     @Override
     public JsonResponse get(User user) {
+        JsonResponse response = new JsonResponse();
+
         User fake = new User();
         fake.setEmail("dinamariana@gmail.com");
         fake.setBirthdate(System.currentTimeMillis());
@@ -34,10 +32,8 @@ public class JongkoServiceMock implements JongkoService {
 
         List<User> result = new ArrayList<>();
         result.add(fake);
-        JsonResponse response = new JsonResponse();
-        response.setStatus(ResponseMessage.SUCCESS);
-        response.setMessage(ResponseMessage.USER_FOUND);
-        response.setData(result);
-        return response;
+        return response
+                .success(ResponseMessage.USER_FOUND)
+                .data(result);
     }
 }

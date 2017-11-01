@@ -19,41 +19,31 @@ public class JongkoServiceImpl implements JongkoService {
 
             if (data != null) {
                 if (data.getPassword().equals(user.getPassword())) {
-                    response.setStatus(ResponseMessage.SUCCESS);
-                    response.setMessage(ResponseMessage.LOGIN_SUCCESS);
+                    return response.success(ResponseMessage.LOGIN_SUCCESS);
                 } else {
-                    response.setStatus(ResponseMessage.FAILED);
-                    response.setMessage(ResponseMessage.WRONG_PASSWORD);
+                    return response.failed(ResponseMessage.WRONG_PASSWORD);
                 }
             } else {
-                response.setStatus(ResponseMessage.FAILED);
-                response.setMessage(ResponseMessage.USER_NOT_FOUND);
+                return response.failed(ResponseMessage.USER_NOT_FOUND);
             }
         } catch (IllegalAccessException e) {
-            response.setStatus(ResponseMessage.ERROR);
-            response.setMessage(ExceptionUtils.getStackTrace(e));
             e.printStackTrace();
+            return response.error(ExceptionUtils.getStackTrace(e));
         } catch (InstantiationException e) {
-            response.setStatus(ResponseMessage.ERROR);
-            response.setMessage(ExceptionUtils.getStackTrace(e));
             e.printStackTrace();
+            return response.error(ExceptionUtils.getStackTrace(e));
         }
-        return response;
     }
 
     @Override
     public JsonResponse signup(User user) {
         JsonResponse response = new JsonResponse();
-        response.setStatus(ResponseMessage.FAILED);
-        response.setMessage(ResponseMessage.UNDER_DEVELOPMENT);
-        return response;
+        return response.failed(ResponseMessage.UNDER_DEVELOPMENT);
     }
 
     @Override
     public JsonResponse get(User user) {
         JsonResponse response = new JsonResponse();
-        response.setStatus(ResponseMessage.FAILED);
-        response.setMessage(ResponseMessage.UNDER_DEVELOPMENT);
-        return response;
+        return response.failed(ResponseMessage.UNDER_DEVELOPMENT);
     }
 }

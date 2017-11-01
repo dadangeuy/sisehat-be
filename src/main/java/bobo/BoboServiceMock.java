@@ -10,30 +10,19 @@ public class BoboServiceMock implements BoboService{
 
     @Override
     public JsonResponse request(RequestDoctor data) {
-//        RequestDoctor fake = new RequestDoctor();
-//        fake.setEmail("dinamariana@gmail.com");
-//        fake.setAddress("Laziiza");
-//        fake.setLatitude(73.32);
-//        fake.setLongitude(31.344);
-//        fake.setCategory("otak");
-//        fake.setComplaint("nyeri otak");
-//        fake.setNote("rumah dekat laziiza");
-//        fake.setStatus(0);
-
         Doctor doctor = new Doctor();
-        doctor.setName("Dr. Didindong");
+        doctor.setName("dr. H. Dina Marjani, Sp.OJ");
         doctor.setPhone("087775891221");
-        doctor.setSpec("Spesialis Artificial Neuron Network");
-        doctor.setEmail("didindong@gmail.com");
-        doctor.setGender("P");
+        doctor.setSpecialty("Spesialis Perut Mulas & Mencret");
+        doctor.setEmail("congky@gmail.com");
+        doctor.setGender("L");
         doctor.setBirthdate(19972609);
 
         List<Doctor> result = new ArrayList<>();
         result.add(doctor);
         JsonResponse response = new JsonResponse();
-        response.setStatus(ResponseMessage.SUCCESS);
-        response.setMessage(ResponseMessage.REQUEST_ACCEPTED);
-        response.setData(result);
-        return response;
+        return response
+                .success(ResponseMessage.REQUEST_ACCEPTED)
+                .data(result);
     }
 }

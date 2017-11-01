@@ -9,16 +9,27 @@ public class JsonResponse {
     private String message;
     private List data;
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public void setMessage(String message) {
+    public JsonResponse success(String message) {
+        status = "SUCCESS";
         this.message = message;
+        return this;
     }
 
-    public void setData(List data) {
+    public JsonResponse failed(String message) {
+        status = "FAILED";
+        this.message = message;
+        return this;
+    }
+
+    public JsonResponse error(String message) {
+        status = "ERROR";
+        this.message = message;
+        return this;
+    }
+
+    public JsonResponse data(List data) {
         this.data = data;
+        return this;
     }
 
     public String build() {
