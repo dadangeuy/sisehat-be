@@ -6,13 +6,12 @@ import javax.persistence.Id;
 import java.util.Date;
 
 public class User {
-    @SerializedName("_id")
     String email;
     String password;
     String name;
     String phone;
     String gender;
-    Date birthdate;
+    long birthdate;
 
     public String getEmail() {
         return email;
@@ -54,11 +53,11 @@ public class User {
         this.gender = gender;
     }
 
-    public Date getBirthdate() {
+    public long getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(Date birthdate) {
+    public void setBirthdate(long birthdate) {
         this.birthdate = birthdate;
     }
 }
