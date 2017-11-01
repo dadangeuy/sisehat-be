@@ -3,6 +3,8 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import jongko.JongkoService;
+import jongko.JongkoServiceImpl;
+import jongko.JongkoServiceMock;
 import bobosama.Request;
 import jongko.JongkoServiceImpl;
 import jongko.JongkoServiceMock;
@@ -11,8 +13,6 @@ import jongko.User;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 @Path("")
 public class Config {
@@ -53,6 +53,22 @@ public class Config {
             User user = gson.fromJson(request, User.class);
             return Response
                     .ok(jongkoService.signup(user).build())
+                    .header("Access-Control-Allow-Origin", "*")
+                    .build();
+        } catch (Exception e) {
+            return Response.serverError().build();
+        }
+    }
+    @Path("profile")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response profile(String request) {
+        try {
+            Gson gson = new Gson();
+            User user = gson.fromJson(request, User.class);
+            return Response
+                    .ok(jongkoService.get(user).build())
                     .header("Access-Control-Allow-Origin", "*")
                     .build();
         } catch (Exception e) {
