@@ -86,6 +86,7 @@ public class Config {
 
             return Response
                     .ok(boboServiceMock.request(requestDoctor).build())
+                    .header("Access-Control-Allow-Origin", "*")
                     .build();
         } catch (Exception e){
             return Response.serverError().build();
