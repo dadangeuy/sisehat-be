@@ -1,10 +1,5 @@
 package jongko;
 
-import com.google.gson.annotations.SerializedName;
-
-import javax.persistence.Id;
-import java.util.Date;
-
 public class User {
     String email;
     String password;
